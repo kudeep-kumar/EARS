@@ -1,9 +1,15 @@
-import { Login, Signup, Welcome } from "./src/auth/index";
-import { StyleSheet, Text, View } from "react-native";
+import {
+  ApplicantList,
+  EditProfileAdmin,
+  TotalEmloyeesList,
+} from "./src/pages/admin";
+import { ChangePassword, Login, Signup, Welcome } from "./src/auth/index";
 
-import BottomTabNav from "./navigations/BottomTabNav";
+import BottomTabNavAdmin from "./navigations/BottomTabNavAdmin";
+import BottomTabNavUser from "./navigations/BottomTabNavUser";
+import { EditProfile } from "./src/pages";
 import { NavigationContainer } from "@react-navigation/native";
-import { StatusBar } from "expo-status-bar";
+import ViewApplicantProfile from "./src/pages/admin/ViewApplicantProfile";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 
 const Stack = createNativeStackNavigator();
@@ -33,13 +39,19 @@ export default function App() {
           }}
         />
         <Stack.Screen
-          name="BottomTabNavigation"
-          component={BottomTabNav}
+          name="BottomTabNavAdmin"
+          component={BottomTabNavAdmin}
           options={{
             headerShown: false,
           }}
         />
-        {/*
+        <Stack.Screen
+          name="BottomTabNavUser"
+          component={BottomTabNavUser}
+          options={{
+            headerShown: false,
+          }}
+        />
         <Stack.Screen
           name="EditProfile"
           component={EditProfile}
@@ -48,29 +60,41 @@ export default function App() {
           }}
         />
         <Stack.Screen
-          name="ChatBox"
-          component={ChatBox}
+          name="EditProfileAdmin"
+          component={EditProfileAdmin}
           options={{
             headerShown: false,
           }}
         />
         <Stack.Screen
-          name="CreateChatBox"
-          component={CreateChatBox}
+          name="ChangePassword"
+          component={ChangePassword}
           options={{
             headerShown: false,
           }}
-        /> */}
+        />
+        <Stack.Screen
+          name="ApplicantList"
+          component={ApplicantList}
+          options={{
+            headerShown: false,
+          }}
+        />
+        <Stack.Screen
+          name="TotalEmloyeesList"
+          component={TotalEmloyeesList}
+          options={{
+            headerShown: false,
+          }}
+        />
+        <Stack.Screen
+          name="ViewApplicantProfile"
+          component={ViewApplicantProfile}
+          options={{
+            headerShown: false,
+          }}
+        />
       </Stack.Navigator>
     </NavigationContainer>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: "#fff",
-    alignItems: "center",
-    justifyContent: "center",
-  },
-});

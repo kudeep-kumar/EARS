@@ -1,14 +1,14 @@
-import { COLORS_PAGES, FONTS } from "../../constants/index";
+import { COLORS_PAGES, FONTS } from "../../../constants/index";
 import { ScrollView, Text, TouchableOpacity, View } from "react-native";
 
-import COLORS from "../../constants/colors";
+import COLORS from "../../../constants/colors";
 import { MaterialIcons } from "@expo/vector-icons";
 import React from "react";
 import { SafeAreaView } from "react-native-safe-area-context";
 
-const Settings = ({ navigation }) => {
+const SettingsAdmin = ({ navigation }) => {
   const navigateToEditProfile = () => {
-    navigation.navigate("EditProfile");
+    navigation.navigate("EditProfileAdmin");
   };
 
   const logout = () => {
@@ -68,7 +68,6 @@ const Settings = ({ navigation }) => {
             style={{
               fontSize: 22,
               fontWeight: "bold",
-              // marginVertical: 12,
               color: COLORS.black,
               alignSelf: "center",
               marginTop: 10,
@@ -98,4 +97,4 @@ const Settings = ({ navigation }) => {
   );
 };
 
-export default Settings;
+export default SettingsAdmin;

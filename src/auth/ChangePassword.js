@@ -1,3 +1,4 @@
+import { Entypo, MaterialIcons } from "@expo/vector-icons";
 import {
   Image,
   Pressable,
@@ -10,23 +11,13 @@ import React, { useState } from "react";
 
 import Button from "../../components/Button";
 import COLORS from "../../constants/colors";
+import { COLORS_PAGES } from "../../constants";
 import Checkbox from "expo-checkbox";
-import { Entypo } from "@expo/vector-icons";
 import { SafeAreaView } from "react-native-safe-area-context";
 
-const Login = ({ navigation }) => {
+const ChangePassword = ({ navigation }) => {
   const [isPasswordShown, setIsPasswordShown] = useState(false);
   const [isChecked, setIsChecked] = useState(false);
-  const [emailId, setEmailId] = useState("");
-  const [password, setPassword] = useState("");
-
-  const handleEmailIdChange = (text) => {
-    setEmailId(text);
-  };
-  const handlePasswordChange = (text) => {
-    setPassword(text);
-  };
-  console.log("emailId", emailId);
 
   return (
     <SafeAreaView
@@ -35,6 +26,26 @@ const Login = ({ navigation }) => {
         backgroundColor: COLORS.white,
         justifyContent: "center",
       }}>
+      <View
+        style={{
+          marginHorizontal: 12,
+          flexDirection: "row",
+          justifyContent: "center",
+        }}>
+        <TouchableOpacity
+          onPress={() => navigation.goBack()}
+          style={{
+            position: "absolute",
+            left: 0,
+            top: 20,
+          }}>
+          <MaterialIcons
+            name="keyboard-arrow-left"
+            size={24}
+            color={COLORS_PAGES.black}
+          />
+        </TouchableOpacity>
+      </View>
       <View style={{ flex: 1, marginHorizontal: 22, marginVertical: 230 }}>
         <View style={{ marginVertical: 22 }}>
           <Text
@@ -45,7 +56,7 @@ const Login = ({ navigation }) => {
               color: COLORS.black,
               alignSelf: "center",
             }}>
-            Login
+            Change Password
           </Text>
         </View>
 
@@ -56,7 +67,7 @@ const Login = ({ navigation }) => {
               fontWeight: 400,
               marginVertical: 8,
             }}>
-            Email address
+            Old Password
           </Text>
 
           <View
@@ -71,12 +82,11 @@ const Login = ({ navigation }) => {
               paddingLeft: 22,
             }}>
             <TextInput
-              placeholder="Enter your email address"
+              placeholder="Enter your old password"
               placeholderTextColor={COLORS.black}
               style={{
                 width: "100%",
               }}
-              onChangeText={handleEmailIdChange}
             />
           </View>
         </View>
@@ -88,7 +98,7 @@ const Login = ({ navigation }) => {
               fontWeight: 400,
               marginVertical: 8,
             }}>
-            Password
+            New Password
           </Text>
 
           <View
@@ -103,13 +113,12 @@ const Login = ({ navigation }) => {
               paddingLeft: 22,
             }}>
             <TextInput
-              placeholder="Enter your password"
+              placeholder="Enter your new password"
               placeholderTextColor={COLORS.black}
               secureTextEntry={isPasswordShown}
               style={{
                 width: "100%",
               }}
-              onChangeText={handlePasswordChange}
             />
 
             <TouchableOpacity
@@ -143,42 +152,17 @@ const Login = ({ navigation }) => {
         </View>
 
         <Button
-          title="Login"
+          title="Change Password"
           filled
           style={{
             marginTop: 18,
             marginBottom: 4,
           }}
-          onPress={() => {
-            emailId === "admin@gmail.com" && password === "Admin@123"
-              ? navigation.navigate("BottomTabNavUser")
-              : navigation.navigate("BottomTabNavAdmin");
-          }}
+          onPress={() => navigation.navigate("BottomTabNavigation")}
         />
-        <View
-          style={{
-            flexDirection: "row",
-            justifyContent: "center",
-            marginVertical: 22,
-          }}>
-          <Text style={{ fontSize: 16, color: COLORS.black }}>
-            Don't have an account ?{" "}
-          </Text>
-          <Pressable onPress={() => navigation.navigate("Signup")}>
-            <Text
-              style={{
-                fontSize: 16,
-                color: COLORS.primary,
-                fontWeight: "bold",
-                marginLeft: 6,
-              }}>
-              Register for a job
-            </Text>
-          </Pressable>
-        </View>
       </View>
     </SafeAreaView>
   );
 };
 
-export default Login;
+export default ChangePassword;

@@ -19,6 +19,7 @@ const Signup = ({ navigation }) => {
   const [isPasswordShown, setIsPasswordShown] = useState(false);
   const [isChecked, setIsChecked] = useState(false);
   const [selectedValue, setSelectedValue] = useState("Select");
+
   return (
     <SafeAreaView style={{ flex: 1, backgroundColor: COLORS.white }}>
       <View style={{ flex: 1, marginHorizontal: 22 }}>
@@ -191,11 +192,6 @@ const Signup = ({ navigation }) => {
               justifyContent: "center",
               paddingLeft: 22,
             }}>
-            {/* <TextInput
-              placeholder="Enter your email id"
-              placeholderTextColor={COLORS.black}
-            /> */}
-
             <Picker
               selectedValue={selectedValue}
               style={{

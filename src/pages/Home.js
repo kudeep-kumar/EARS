@@ -1,26 +1,30 @@
+import { ScrollView, Text, View } from "react-native";
+
+import COLORS from "../../constants/colors";
 import HomeCard from "../components/HomeCard";
 import React from "react";
-import { ScrollView } from "react-native";
 
 const Home = ({ navigation }) => {
   return (
     <ScrollView style={{ marginTop: 30 }}>
+      <View style={{ marginVertical: 22 }}>
+        <Text
+          style={{
+            fontSize: 22,
+            fontWeight: "bold",
+            color: COLORS.black,
+            alignSelf: "center",
+            marginTop: 10,
+          }}>
+          Home
+        </Text>
+      </View>
       <HomeCard
-        title={"Eglish Group"}
-        subText={"If anyone Interested join this group"}
-        status={"Active"}
-        navigation={navigation}
-      />
-      <HomeCard
-        title={"French language Group"}
-        subText={"If anyone Interested join this group"}
-        status={"Ofline"}
-        navigation={navigation}
-      />
-      <HomeCard
-        title={"Germen language Group"}
-        subText={"If anyone Interested join this group"}
-        status={"Ofline"}
+        name={"demo user"}
+        emailId={"demouser@gmail.com"}
+        title={"Assistant Professor"}
+        phoneNumber={"+192312908390"}
+        status={"applied"}
         navigation={navigation}
       />
     </ScrollView>

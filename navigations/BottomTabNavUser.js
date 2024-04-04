@@ -1,15 +1,10 @@
-import { Create, Home, Messages, Profile, Settings } from "../src/pages/index";
-import {
-  Fontisto,
-  MaterialCommunityIcons,
-  MaterialIcons,
-  SimpleLineIcons,
-} from "@expo/vector-icons";
-import { Platform, Text, View } from "react-native";
+import { Home, Profile, Settings } from "../src/pages/index";
+import { Platform, View } from "react-native";
 
-import COLORS from "./../constants/colors";
+import COLORS from "../constants/colors";
 import { COLORS_PAGES } from "../constants";
 import { FontAwesome } from "@expo/vector-icons";
+import { MaterialIcons } from "@expo/vector-icons";
 import React from "react";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 
@@ -29,7 +24,7 @@ const screenOptions = {
     backgroundColor: COLORS_PAGES.white,
   },
 };
-const BottomTabNav = () => {
+const BottomTabNavUser = () => {
   return (
     <Tab.Navigator screenOptions={screenOptions}>
       <Tab.Screen
@@ -121,4 +116,4 @@ const BottomTabNav = () => {
   );
 };
 
-export default BottomTabNav;
+export default BottomTabNavUser;
