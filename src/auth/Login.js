@@ -151,8 +151,8 @@ const Login = ({ navigation }) => {
           }}
           onPress={() => {
             emailId === "admin@gmail.com" && password === "Admin@123"
-              ? navigation.navigate("BottomTabNavUser")
-              : navigation.navigate("BottomTabNavAdmin");
+              ? navigation.navigate("BottomTabNavAdmin")
+              : navigation.navigate("BottomTabNavUser");
           }}
         />
         <View
